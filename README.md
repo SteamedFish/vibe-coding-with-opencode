@@ -167,14 +167,14 @@ OpenCode 的核心优势在于**开放性**和**可扩展性**：
 
 | 模型 | 厂商 | 上下文窗口 | 编程能力 | 价格 (输入/输出 每百万 Token) | 特点 |
 |------|------|-----------|---------|------|------|
-| **Claude Opus 4.6** | Anthropic | 1M | ⭐⭐⭐⭐⭐ | $5 / $25 | 最强深度推理，扩展思考，长时 Agent 任务 |
-| **Claude Sonnet 4.6** | Anthropic | 1M | ⭐⭐⭐⭐½ | $3 / $15 | 速度与智能最佳平衡，日常首选 |
+| **Claude Opus 4.7** | Anthropic | 1M | ⭐⭐⭐⭐⭐ | $5 / $25 | 最强深度推理，扩展思考，长时 Agent 任务 |
+| **Claude Sonnet 4.7** | Anthropic | 1M | ⭐⭐⭐⭐½ | $3 / $15 | 速度与智能最佳平衡，日常首选 |
 | **GPT-5.4** | OpenAI | 270K+ | ⭐⭐⭐⭐⭐ | $2.50 / $15 | 统一 Codex + GPT 产品线，最强通用编码 |
 | **GPT-5.3 Codex** | OpenAI | 400K | ⭐⭐⭐⭐⭐ | $1.75 / $14 | 专为编码 Agent 优化，SWE-Bench Pro SOTA |
 | **Gemini 3.1 Pro** | Google | 1M | ⭐⭐⭐⭐⭐ | Preview 阶段 | 多模态旗舰，SWE 与 Agent 能力大幅提升 |
-| **DeepSeek V3.2** | DeepSeek | 128K | ⭐⭐⭐⭐ | $0.28 / $0.42 | 开源 SOTA，GPT-5 级性能，极致性价比 |
+| **DeepSeek V4** | DeepSeek | 1M | ⭐⭐⭐⭐⭐ | $1.65 / $3.30 | 开源 SOTA，1M 上下文标配，V4-Pro / V4-Flash 双版本 |
 | **GLM-5.1** | 智谱 | 200K | ⭐⭐⭐⭐ | Coding Plan 订阅 | GLM-5 编码增强版，对标 Opus，SWE-bench 77.8（GLM-5 基线） |
-| **Kimi K2.5** | Moonshot | 256K | ⭐⭐⭐⭐ | 会员订阅 | 原生多模态，视觉编码最强，MoE 1T 参数 |
+| **Kimi K2.6** | Moonshot | 256K | ⭐⭐⭐⭐⭐ | 会员订阅 | 原生多模态，视觉编码最强，MoE 1T 参数 |
 | **MiniMax M2.7** | MiniMax | — | ⭐⭐⭐ | ¥2.1 / ¥8.4 | 高速推理，OMO 轻量 Agent 首选 |
 | **Grok Code Fast** | xAI | — | ⭐⭐⭐ | — | 极速响应，适合代码搜索和探索类 Agent |
 
@@ -182,16 +182,16 @@ OpenCode 的核心优势在于**开放性**和**可扩展性**：
 
 | 场景 | 推荐模型 | 理由 |
 |------|---------|------|
-| 日常编码 | **Claude Sonnet 4.6** | 速度与质量兼顾，最大社区采用量 |
-| 复杂架构/调试 | **Claude Opus 4.6** / **GPT-5.4** | 深度推理能力最强 |
-| 大型项目 | **Gemini 3.1 Pro** / **Claude Opus 4.6** | 1M 上下文窗口 |
+| 日常编码 | **Claude Sonnet 4.7** | 速度与质量兼顾，最大社区采用量 |
+| 复杂架构/调试 | **Claude Opus 4.7** / **GPT-5.4** | 深度推理能力最强 |
+| 大型项目 | **Gemini 3.1 Pro** / **Claude Opus 4.7** | 1M 上下文窗口 |
 | 专项编码 Agent | **GPT-5.3 Codex** | SWE-Bench Pro SOTA，Agent 场景最优 |
-| 预算有限 | **DeepSeek V3.2** | 输出仅 $0.42/M，是 Claude Opus 的 1/60 |
-| 视觉编码 | **Kimi K2.5** | 截图/设计稿→代码，多模态原生 |
-| 国内方案 | **GLM-5.1** / **Kimi K2.5** | GLM-5.1 编码最强（Z.ai Coding Plan），Kimi 会员订阅 |
+| 预算有限 | **DeepSeek V4-Flash** | 高速版，成本远低于 V4-Pro，适合高并发场景 |
+| 视觉编码 | **Kimi K2.6** | 截图/设计稿→代码，多模态原生 |
+| 国内方案 | **GLM-5.1** / **Kimi K2.6** | GLM-5.1 编码最强（Z.ai Coding Plan），Kimi 会员订阅 |
 | 轻量/高速任务 | **MiniMax M2.7** / **Grok Code Fast** | 快速响应，适合代码搜索、探索 |
 
-> 💡 **实用建议**：大多数场景下 **Claude Sonnet 4.6** 是最佳日常选择。遇到棘手问题时切换 **Opus 4.6** 或 **GPT-5.4**。处理大型项目时用 **Gemini 3.1 Pro** 或 **Claude Opus 4.6** 的 1M 上下文窗口。预算敏感场景优先考虑 **DeepSeek V3.2**（极低 API 价格）或 **Z.ai Coding Plan Lite**（$10/月）。
+> 💡 **实用建议**：大多数场景下 **Claude Sonnet 4.7** 是最佳日常选择。遇到棘手问题时切换 **Opus 4.7** 或 **GPT-5.4**。处理大型项目时用 **Gemini 3.1 Pro** 或 **Claude Opus 4.7** 的 1M 上下文窗口。预算敏感场景优先考虑 **DeepSeek V4-Flash**（高速低成本版）或 **Z.ai Coding Plan Lite**（$10/月）。
 >
 > ⚠️ **非编码任务提示**：分析日志、排查系统错误等任务，建议使用通用推理模型（如 GPT-5.4）而非编码专用模型（如 GPT-5.3 Codex），效果往往更好。
 
@@ -203,21 +203,22 @@ OpenCode 的核心优势在于**开放性**和**可扩展性**：
 
 | 订阅计划 | 月费 | 包含模型 | 定价模式 | 特点 |
 |---------|------|---------|---------|------|
-| **Claude Code** (Anthropic) | $17 Pro / $100 Max / $200 Max 20x | Opus 4.6、Sonnet 4.6 | 订阅 | Max 20x = Pro 用量 20 倍，高峰优先 |
+| **Claude Code** (Anthropic) | $17 Pro / $100 Max / $200 Max 20x | Opus 4.7、Sonnet 4.7 | 订阅 | Max 20x = Pro 用量 20 倍，高峰优先 |
 | **ChatGPT Pro** (OpenAI) | $20 Plus / $200 Pro | GPT-5.4、GPT-5.3 Codex 等 | 订阅 | Pro 含 Codex 代理，无限高级模型 |
 | **Gemini** (Google) | 免费 / ~$20 AI Pro | Gemini 3.1 Pro、Flash | 订阅 | 免费额度即可使用，性价比极高 |
 | **GitHub Copilot** | $0 Free / $10 Pro / $39 Pro+ | Claude、GPT、Gemini 等 70+ 模型 | 订阅 | 多模型聚合，Free 含 50 次高级请求/月 |
 | **OpenCode Zen** | 按量付费（$20 起充） | 精选模型（Claude、GPT、Gemini 等） | 预付费 | 零加价透传，专为编程 Agent 优化 |
+| **OpenCode Go** | $5 首月 / $10/月 | GLM-5.1、Kimi K2.6、DeepSeek V4、Qwen3.6 等开源模型 | 订阅 | 低成本高额度，~880-31650 requests/5h，可充值 |
 | **智谱 / Z.ai** | $10 Lite / $30 Pro / $100 Max | GLM-5.1、GLM-5、GLM-4.7 | 订阅 | Coding Plan 专属，~80-1600 prompts/5h，含 MCP 工具 |
-| **DeepSeek** | API 按量（无订阅计划） | V3.2（$0.28/$0.42 每百万 Token） | API | 极致性价比，开源 SOTA，目前无 Coding Plan |
-| **Kimi** (Moonshot) | ¥49 / ¥99 / ¥199 / ¥699 月 | K2.5（256K 上下文） | 订阅 | 视觉编码强，4 档会员计划 |
+| **DeepSeek** | API 按量（无订阅计划） | V4-Pro / V4-Flash（详见官网定价） | API | 极致性价比，1M 上下文标配，开源 SOTA |
+| **Kimi** (Moonshot) | ¥49 / ¥99 / ¥199 / ¥699 月 | K2.6（256K 上下文） | 订阅 | 视觉编码强，4 档会员计划 |
 | **MiniMax** | ¥29-899/月 / API 按量 | M2.7（¥2.1/¥8.4 每百万 Token） | 订阅+API | 高速推理，套餐覆盖不同用量 |
 
 > 💡 **如何选择订阅计划**：
 > - **想用 Claude**：Claude Code Max 计划（$100/月起），Opus 高用量
 > - **想用多种模型**：GitHub Copilot Pro+（$39/月，70+ 模型）或 OpenCode Zen（按量零加价）
-> - **预算敏感**：DeepSeek API（极低价）+ Gemini 免费额度 + GitHub Copilot Free（50 次/月）
-> - **国内用户**：智谱 Z.ai Coding Plan、Kimi 会员、MiniMax 套餐，无需科学上网
+> - **预算敏感**：OpenCode Go（$10/月，开源模型高额度）/ DeepSeek API（极低价）+ Gemini 免费额度 + GitHub Copilot Free（50 次/月）
+> - **国内用户**：智谱 Z.ai Coding Plan、Kimi 会员、MiniMax 套餐、OpenCode Go，无需科学上网
 > - **灵活切换**：直接用各厂商 API Key（见[第 3.2 节](#32-认证配置)），按量付费最自由
 
 ---
@@ -360,7 +361,7 @@ OpenCode 使用 `opencode.json` 进行配置，通常放在项目根目录：
 {
   "$schema": "https://opencode.ai/config.json",
   // 默认模型（格式：provider/model-name）
-  "model": "anthropic/claude-sonnet-4-5",
+  "model": "anthropic/claude-sonnet-4-7",
   // 插件列表
   "plugin": [
     "oh-my-openagent"
@@ -763,12 +764,12 @@ Bug 描述：[现象]
 | 模型 | 上下文窗口 | 大约相当于 |
 |------|-----------|-----------|
 | Gemini 3.1 Pro | 1M tokens | ~250 万字 |
-| Claude Opus/Sonnet 4.6 | 1M | ~250 万字 |
+| Claude Opus/Sonnet 4.7 | 1M | ~250 万字 |
 | GPT-5.3 Codex | 400K | ~100 万字 |
 | GPT-5.4 | 270K+ | ~67 万字 |
-| Kimi K2.5 | 256K | ~64 万字 |
+| Kimi K2.6 | 256K | ~64 万字 |
 | GLM-5.1 | 200K | ~50 万字 |
-| DeepSeek V3.2 | 128K | ~32 万字 |
+| DeepSeek V4 | 1M | ~250 万字 |
 
 > 💡 换算参考：1 token ≈ 0.75 个英文单词 ≈ 0.5 个中文字符
 
@@ -1243,17 +1244,17 @@ OMO 的每个 Agent 都有针对特定模型家族优化的提示词——Claude
 
 | Agent | 角色 | 模型优先级 | 约束 |
 |-------|------|-------------------|------|
-| **Sisyphus** | 总指挥 | Claude Opus (max) → Kimi K2.5 → GPT-5.4 (medium) → GLM-5 | Claude 优化；GPT/Gemini 有独立提示词 |
+| **Sisyphus** | 总指挥 | Claude Opus (max) → Kimi K2.6 → GPT-5.4 (medium) → GLM-5 | Claude 优化；GPT/Gemini 有独立提示词 |
 | **Prometheus** | 规划师 | Claude Opus (max) → GPT-5.4 (high) → GLM-5 → Gemini Pro | 三套提示词：Claude/GPT/Gemini 各一 |
 | **Oracle** | 架构师 | **GPT-5.4 (max)** → Gemini Pro (high) → Claude Opus (max) → GLM-5 | GPT 优先！双提示词（GPT/Claude） |
 | **Hephaestus** | 深度工程师 | GPT-5.4 (medium) | ⚠️ **仅限 GPT**，硬性锁定，无回退 |
 | **Momus** | 评审官 | GPT-5.4 (xhigh) → Claude Opus (max) → Gemini Pro (high) → GLM-5 | GPT 优先 |
-| **Metis** | 需求分析师 | Claude Opus (max) → GPT-5.4 (high) → GLM-5 → Kimi K2.5 | Claude 优化 |
+| **Metis** | 需求分析师 | Claude Opus (max) → GPT-5.4 (high) → GLM-5 → Kimi K2.6 | Claude 优化 |
 | **Librarian** | 文档搜索 | MiniMax M2.7 → Claude Haiku → GPT-5 Nano | 重速度，廉价模型即可 |
 | **Explore** | 代码搜索 | Grok Code Fast → MiniMax M2.7 → Claude Haiku → GPT-5 Nano | 重速度，廉价模型即可 |
-| **Sisyphus-Junior** | 子任务执行 | Claude Sonnet → Kimi K2.5 → GPT-5.4 (medium) → MiniMax M2.7 | Claude 优化 |
-| **Atlas** | Todo 编排 | Claude Sonnet → Kimi K2.5 → GPT-5.4 (medium) → MiniMax M2.7 | 双提示词 |
-| **Multimodal Looker** | 视觉识别 | GPT-5.4 (medium) → Kimi K2.5 → GLM-4.6V → GPT-5 Nano | 需要视觉能力 |
+| **Sisyphus-Junior** | 子任务执行 | Claude Sonnet → Kimi K2.6 → GPT-5.4 (medium) → MiniMax M2.7 | Claude 优化 |
+| **Atlas** | Todo 编排 | Claude Sonnet → Kimi K2.6 → GPT-5.4 (medium) → MiniMax M2.7 | 双提示词 |
+| **Multimodal Looker** | 视觉识别 | GPT-5.4 (medium) → Kimi K2.6 → GLM-4.6V → GPT-5 Nano | 需要视觉能力 |
 
 > ⚠️ **Hephaestus 仅支持 GPT**：源码中硬编码了 `requiresProvider: ["openai", "github-copilot", "venice", "opencode"]`，如果你没有任何 GPT 提供商，Hephaestus 将无法注册。
 >
@@ -1265,14 +1266,14 @@ OMO 的每个 Agent 都有针对特定模型家族优化的提示词——Claude
 
 | Category | 用途 | 模型优先级 |
 |----------|------|-------------------|
-| `visual-engineering` | 前端/UI 设计 | Gemini Pro (high) → GLM-5 → Claude Opus (max) → Kimi K2.5 |
+| `visual-engineering` | 前端/UI 设计 | Gemini Pro (high) → GLM-5 → Claude Opus (max) → Kimi K2.6 |
 | `ultrabrain` | 硬逻辑/算法 | GPT-5.4 (xhigh) → Gemini Pro (high) → Claude Opus (max) → GLM-5 |
 | `deep` | 自主深度研究 | GPT-5.4 (medium) → Claude Opus (max) → Gemini Pro (high) |
 | `artistry` | 创意问题解决 | Gemini Pro (high) → Claude Opus (max) → GPT-5.4 |
 | `quick` | 轻量快速任务 | GPT-5.4 Mini → Claude Haiku → Gemini Flash → MiniMax M2.7 → GPT-5 Nano |
-| `unspecified-high` | 未分类（高难度） | Claude Opus (max) → GPT-5.4 (high) → GLM-5 → Kimi K2.5 |
-| `unspecified-low` | 未分类（低难度） | Claude Sonnet → GPT Codex (medium) → Kimi K2.5 → Gemini Flash → MiniMax M2.7 |
-| `writing` | 文档写作 | Gemini Flash → Kimi K2.5 → Claude Sonnet → MiniMax M2.7 |
+| `unspecified-high` | 未分类（高难度） | Claude Opus (max) → GPT-5.4 (high) → GLM-5 → Kimi K2.6 |
+| `unspecified-low` | 未分类（低难度） | Claude Sonnet → GPT Codex (medium) → Kimi K2.6 → Gemini Flash → MiniMax M2.7 |
+| `writing` | 文档写作 | Gemini Flash → Kimi K2.6 → Claude Sonnet → MiniMax M2.7 |
 
 **配置文件示例**（`~/.config/opencode/oh-my-openagent.json`）：
 
@@ -1280,15 +1281,15 @@ OMO 的每个 Agent 都有针对特定模型家族优化的提示词——Claude
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-openagent.schema.json",
   "agents": {
-    "sisyphus": { "model": "anthropic/claude-opus-4-6", "variant": "max" },
+    "sisyphus": { "model": "anthropic/claude-opus-4-7", "variant": "max" },
     "oracle": { "model": "openai/gpt-5.4", "variant": "max" },
-    "prometheus": { "model": "anthropic/claude-opus-4-6", "variant": "max" },
+    "prometheus": { "model": "anthropic/claude-opus-4-7", "variant": "max" },
     "hephaestus": { "model": "openai/gpt-5.4", "variant": "medium" },
     "momus": { "model": "openai/gpt-5.4", "variant": "xhigh" },
-    "metis": { "model": "anthropic/claude-opus-4-6", "variant": "max" },
+    "metis": { "model": "anthropic/claude-opus-4-7", "variant": "max" },
     "explore": { "model": "openai/gpt-5-nano" },
     "librarian": { "model": "anthropic/claude-haiku-4-5" },
-    "sisyphus-junior": { "model": "anthropic/claude-sonnet-4-6" }
+    "sisyphus-junior": { "model": "anthropic/claude-sonnet-4-7" }
   },
   "categories": {
     "quick": { "model": "openai/gpt-5.4-mini" },
@@ -2330,11 +2331,11 @@ opencode -m provider/model-name    # 例如：opencode -m github-copilot/claude-
 
 | 场景 | 推荐模型 |
 |------|---------|
-| 日常编码 | Claude Sonnet 4.6 |
-| 复杂架构/调试 | Claude Opus 4.6 / GPT-5.4 |
-| 大项目 | Gemini 3.1 Pro / Claude Opus 4.6 |
-| 预算有限 | DeepSeek V3.2（API 极低价）/ Z.ai Lite $10/月 / Gemini 免费额度 |
-| 非编码分析 | GPT-5.4 / DeepSeek V3.2 |
+| 日常编码 | Claude Sonnet 4.7 |
+| 复杂架构/调试 | Claude Opus 4.7 / GPT-5.4 |
+| 大项目 | Gemini 3.1 Pro / Claude Opus 4.7 |
+| 预算有限 | OpenCode Go（$10/月，开源模型高额度）/ DeepSeek V4-Flash（高速低成本）/ Z.ai Lite $10/月 / Gemini 免费额度 |
+| 非编码分析 | GPT-5.4 / DeepSeek V4-Pro |
 
 ### 13.3 团队协作
 
