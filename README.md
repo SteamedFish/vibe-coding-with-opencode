@@ -1087,29 +1087,74 @@ brainstorming → writing-plans → TDD → verification → code-review → git
 
 #### OpenSpec：Spec 驱动开发
 
-**OpenSpec**（[openspec.dev](https://openspec.dev)）是一个轻量级的 Spec 驱动开发框架，由 Fission AI 开发。
+**OpenSpec**（[openspec.dev](https://openspec.dev) / [openspec.pro](https://openspec.pro)）是一个轻量级的 **Spec Driven Development（SDD，规格驱动开发）框架**，由 Fission AI 开发，专门用来解决 AI 编码中的一个常见痛点：
 
-**核心理念**：用 Gherkin 风格的 Spec 文件（`openspec/specs/*.md`）描述需求，让 AI 在实现前明确"做什么"。
+> AI 很会写代码，但如果需求只存在于聊天记录里，它很容易忘记上下文、误解边界，或者在几轮对话后偏离最初目标。
 
-**工作流程**：
+OpenSpec 的做法是在代码仓库里加入一层**可版本化的需求规格层**：先把“要做什么、为什么做、验收标准是什么”写进 Markdown 文件，再让 AI 按这些规格去规划、实现和归档。这样需求不再只是一次性的 Prompt，而会变成和代码一起演进的项目资产。
 
+> ⚠️ **不要和 OpenAPI 混淆**：OpenAPI/Swagger 描述的是 REST API 接口契约；OpenSpec 描述的是 AI 辅助开发过程中的产品需求、行为变化和实现任务。
+
+**核心理念**：先对齐规格，再编写代码。OpenSpec 不是单纯的“文档模板”，而是一套围绕 `proposal → specs → design → tasks → implementation → archive` 运转的工作流。
+
+**典型目录结构**：
+
+```text
+openspec/
+├── specs/                    # 当前系统行为的事实来源（source of truth）
+│   └── user-auth/spec.md
+├── changes/                  # 每一次需求变更都有自己的文件夹
+│   └── add-password-reset/
+│       ├── proposal.md       # 为什么要改、目标是什么
+│       ├── specs/            # Delta Spec：本次新增/修改/删除哪些行为
+│       ├── design.md         # 设计思路和关键决策
+│       └── tasks.md          # 可执行任务清单
+└── project.md                # 项目背景、约定和上下文
 ```
-需求描述 → AI 生成 Spec → 审查 Spec → AI 按 Spec 实现 → 验证
+
+对新手来说，可以把它理解成“给 AI 用的产品需求文档 + 变更管理系统”：
+
+| 概念 | 作用 | 新手理解 |
+|------|------|----------|
+| **Spec** | 描述当前系统应该具备的行为 | “这个功能现在应该是什么样” |
+| **Change** | 一次待实现的变更 | “这次我要加/改什么” |
+| **Proposal** | 解释变更背景和目标 | “为什么要做这件事” |
+| **Delta Spec** | 只描述本次变化，常见标记包括 ADDED / MODIFIED / REMOVED | “和现在相比，到底变了哪里” |
+| **Design** | 记录实现方案、取舍和风险 | “准备怎么做，为什么这样做” |
+| **Tasks** | 把变更拆成可执行步骤 | “AI 接下来按哪些步骤干活” |
+| **Archive** | 完成后把变更合并回主规格 | “做完后更新正式需求档案” |
+
+**常见工作流程（OPSX）**：
+
+```text
+/opsx:explore  →  /opsx:propose  →  人类审查  →  /opsx:apply  →  验证  →  /opsx:archive
+  先想清楚          生成变更规格       确认方向       按任务实现      测试       归档为长期规格
 ```
+
+它的重点不是制造繁琐流程，而是把 AI 容易丢失的上下文固定下来：需求、设计、任务和历史变更都留在仓库里，下一次打开项目时，AI 可以直接读取这些文件恢复上下文。
 
 **特点**：
 
 | 特点 | 说明 |
 |------|------|
-| **轻量** | 纯 Markdown，无需复杂配置 |
-| **版本化** | Spec 与代码一起提交到 Git，需求变更可追溯 |
-| **多工具支持** | 兼容 Claude Code、Cursor、Copilot、OpenCode 等 20+ 工具 |
-| **零依赖** | 无需 API Key，无 MCP 依赖 |
+| **轻量** | 主要使用 Markdown 文件，不需要复杂服务或数据库 |
+| **先对齐再实现** | 在写代码前先让人和 AI 对齐目标、范围和验收标准 |
+| **Delta 驱动** | 面向已有项目时，只描述本次变化，而不是重写整套需求 |
+| **版本化** | Spec 与代码一起提交到 Git，需求变化、设计取舍和实现记录都可追溯 |
+| **多工具支持** | 兼容 Claude Code、Cursor、Copilot、OpenCode、Windsurf 等多种 AI 编码工具 |
+| **低锁定** | 它管理的是仓库里的规格文件，不把你绑定到某一个 IDE 或模型 |
 
 **适用场景**：
-- 需求频繁变更的项目
-- 需要严格需求文档的协作环境
-- 希望用自然语言而非代码来管理需求的团队
+- 需求经常变化，担心 AI 每次都从零理解项目
+- 多人协作时，希望需求、设计和实现任务都有可追溯记录
+- 维护已有项目（brownfield），需要清楚说明“这次变更相对现状改了什么”
+- 想让 AI 在动手写代码前先生成可审查的 proposal、spec 和 tasks
+- 不想引入很重的平台，只想用 Markdown + Git 管理需求上下文
+
+**不太适合的场景**：
+- 一次性脚本、临时小修小补，写 Spec 的成本可能高于收益
+- 需求还完全没有方向时，应先用 brainstorming 之类的方法澄清问题
+- 团队没有审查规格的习惯，只把它当“自动生成文档”，效果会打折扣
 
 **与 Superpowers 组合使用**：
 
@@ -1131,20 +1176,22 @@ OpenSpec 和 Superpowers 可以**同时使用**，形成互补：
 npm install -g @fission-ai/openspec@latest
 ```
 
+安装后，你通常会在项目里初始化 OpenSpec，并通过对应 AI 工具的 slash commands（例如 `/opsx:propose`、`/opsx:apply`、`/opsx:archive`）来生成、执行和归档变更。
+
 #### 两种框架的对比
 
 | 维度 | Superpowers | OpenSpec |
 |------|-------------|----------|
-| **方法论** | 技能组合 | Spec 驱动 |
-| **核心单元** | Skill | Spec 文件 |
-| **工作方式** | 按需加载技能 | 先写 Spec 再实现 |
+| **方法论** | 技能组合 | Spec / Change 驱动 |
+| **核心单元** | Skill | Spec、Change、Delta Spec |
+| **工作方式** | 按需加载技能，指导 AI 怎么做 | 先沉淀需求上下文，再让 AI 按规格实现 |
 | **配置复杂度** | 中等 | 低 |
 | **团队适用性** | 灵活，适合个人或小团队 | 适合需求驱动型团队 |
 | **与 OpenCode 集成** | 原生插件 | 命令行工具 |
 
 > 💡 **选择建议**：
 > - 如果你喜欢**灵活组合**各种工作模式，继续使用 **Superpowers**
-> - 如果你希望**用自然语言管理需求**，尝试 **OpenSpec**
+> - 如果你希望**把需求、设计和任务长期沉淀在仓库里**，尝试 **OpenSpec**
 > - 两者并非互斥——你可以在一个项目中组合使用它们的优势
 
 ---
